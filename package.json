@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "astrobase",
+=======
+  "name": "dnaweb",
+>>>>>>> 7f9bbf3 (Initial commit from Astro)
   "type": "module",
   "version": "0.0.1",
   "scripts": {
