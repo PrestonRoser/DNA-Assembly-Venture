@@ -1,12 +1,7 @@
-<<<<<<< HEAD
 ---
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-
-const {
-  title = "DNA Assembly Education",
-  description = "Hands-on DNA/mRNA learning kit",
-} = Astro.props;
+const { title = "DNA Assembly Education", description = "Hands-on DNA/mRNA learning kit and classroom resources" } = Astro.props;
 ---
 <html lang="en">
   <head>
@@ -15,43 +10,82 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root{
+        --bg:#F8FAFC;
+        --surface:#FFFFFF;
+        --text:#0F172A;
+        --muted:#475569;
+        --border:#E2E8F0;
+        --pastel-red:#FBCFE8;
+        --pastel-green:#BBF7D0;
+        --pastel-yellow:#FDE68A;
+        --pastel-blue:#BFDBFE;
+        --brand-text:#1E3A8A;
+        --brand:#2563EB;
+        --brand-hover:#1D4ED8;
+        --shadow:0 10px 30px rgba(2, 6, 23, .06);
+        --nav-height:64px;
+        --nav-gap:2rem;
+      }
+      *{box-sizing:border-box}
+      html,body{margin:0;background:var(--bg);color:var(--text)}
+      img{max-width:100%;display:block}
+      a{text-decoration:none;color:inherit}
+      .container{max-width:1180px;margin:0 auto;padding:0 1rem}
+      .section{padding:4rem 0}
+      .h1{font-family:'Plus Jakarta Sans',Inter,system-ui,sans-serif;font-weight:800;font-size:clamp(2rem,4.5vw,3rem);line-height:1.1;margin:0}
+      .h2{font-family:'Plus Jakarta Sans',Inter,system-ui,sans-serif;font-weight:700;font-size:1.75rem;margin:0 0 .25rem}
+      .lead{font-size:1.125rem;line-height:1.65;color:var(--muted);max-width:65ch}
+      .kicker{text-transform:uppercase;letter-spacing:.16em;font-weight:600;color:var(--muted);font-size:.78rem}
+      .card{background:var(--surface);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);padding:1.25rem}
+      .grid-2{display:grid;gap:1.75rem}
+      @media(min-width:960px){.grid-2{grid-template-columns:1.15fr .85fr}}
+      .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.1rem;border-radius:12px;border:1px solid var(--border);background:#fff;transition:all .15s ease}
+      .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+      .btn.primary{background:var(--brand);color:#fff;border-color:var(--brand)}
+      .btn.primary:hover{background:var(--brand-hover)}
+      .pill{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;padding:.3rem .75rem;border:1px solid var(--border);background:#fff}
+      .muted{color:var(--muted)}
+      .hr{height:1px;background:var(--border);margin:2.25rem 0}
+      .nav-wrap{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.88);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--border)}
+      .nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:var(--nav-height)}
+      .brand a{font-family:'Plus Jakarta Sans',Inter,sans-serif;font-weight:800;color:var(--brand-text);font-size:1.125rem;letter-spacing:.2px}
+      .links{display:none;gap:var(--nav-gap);align-items:center}
+      .links a{color:var(--text);opacity:.9;padding:.25rem .5rem;border-radius:10px}
+      .links a[aria-current="page"], .links a:hover{background:var(--pastel-blue)}
+      .links.center{justify-self:center;display:flex}
+      .actions{justify-self:end;display:flex;gap:.5rem;align-items:center}
+      .icon-btn{width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;border-radius:12px;border:1px solid var(--border);background:#fff}
+      .icon-btn:hover{box-shadow:var(--shadow)}
+      details.menu{position:relative}
+      details.menu[open] .sheet{display:block}
+      .sheet{display:none;position:absolute;right:0;top:calc(var(--nav-height) - 8px);background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);min-width:240px;overflow:hidden}
+      .sheet a{display:block;padding:.8rem 1rem;border-bottom:1px solid var(--border)}
+      .sheet a:last-child{border-bottom:0}
+      @media(min-width:980px){details.menu{display:none} .links{display:flex} }
+      .hero-img{border-radius:20px;border:1px solid var(--border);box-shadow:var(--shadow)}
+      footer .cols{display:grid;gap:1.25rem}
+      @media(min-width:960px){footer .cols{grid-template-columns:2fr 1fr 1fr 1fr}}
+    </style>
   </head>
-  <body class="min-h-dvh bg-white text-gray-800 antialiased">
-    <header class="sticky top-0 bg-white/80 backdrop-blur border-b">
-      <Navbar />
-    </header>
-
-    <main class="mx-auto max-w-6xl px-4 py-8">
+  <body>
+    <div class="nav-wrap">
+      <div class="container nav">
+        <Navbar />
+      </div>
+    </div>
+    <main class="container">
       <slot />
     </main>
-
-    <footer class="border-t">
-      <Footer />
+    <footer class="section" style="border-top:1px solid var(--border)">
+      <div class="container cols">
+        <Footer />
+      </div>
     </footer>
   </body>
 </html>
 
-=======
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
->>>>>>> 7f9bbf3 (Initial commit from Astro)

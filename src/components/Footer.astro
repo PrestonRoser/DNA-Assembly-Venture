@@ -1,14 +1,31 @@
 ---
 const year = new Date().getFullYear();
 ---
-<footer class="w-full">
-  <div class="mx-auto max-w-6xl px-4 py-6 text-sm text-gray-600 flex flex-col md:flex-row gap-2 md:items-center md:justify-between">
-    <p>&copy; {year} DNA Assembly Education. All rights reserved.</p>
-    <ul class="flex gap-4">
-      <li><a class="hover:underline" href="/mission">Mission</a></li>
-      <li><a class="hover:underline" href="/founders">Founders</a></li>
-      <li><a class="hover:underline" href="/contact">Contact</a></li>
-    </ul>
+<div>
+  <strong style="font-family:'Plus Jakarta Sans',Inter,sans-serif;font-weight:800;color:var(--brand-text)">DNA Assembly Education</strong>
+  <p class="muted" style="margin:.3rem 0 0">Hands‑on tools for modern biology.</p>
+  <p class="muted">© {year}</p>
+</div>
+<div>
+  <h3 class="h2" style="font-size:1rem">Explore</h3>
+  <a href="/product">Product</a><br/>
+  <a href="/mission">Mission</a><br/>
+  <a href="/founders">Founders</a><br/>
+  <a href="/venture">Venture</a><br/>
+  <a href="/contact">Contact</a>
+</div>
+<div>
+  <h3 class="h2" style="font-size:1rem">Resources</h3>
+  <a href="https://www.etsy.com/listing/4368469267/3d-dnarna-assembly-kit-stem-learning-kit?etsrc=sdt" target="_blank" rel="noopener">Etsy</a><br/>
+  <span class="muted">Lesson guides (soon)</span>
+</div>
+<div>
+  <h3 class="h2" style="font-size:1rem">Brand</h3>
+  <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.25rem">
+    <span class="pill" style="background:var(--pastel-blue)">Blue</span>
+    <span class="pill" style="background:var(--pastel-green)">Green</span>
+    <span class="pill" style="background:var(--pastel-yellow)">Yellow</span>
+    <span class="pill" style="background:var(--pastel-red)">Red</span>
   </div>
-</footer>
+</div>
 

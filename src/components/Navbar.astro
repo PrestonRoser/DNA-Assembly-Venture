@@ -1,15 +1,113 @@
 ---
+// src/components/Navbar.astro — responsive single-row → two-row → mobile
+const LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/product", label: "Product" },
+  { href: "/mission", label: "Mission" },
+  { href: "/founders", label: "Founders" },
+  { href: "/contact", label: "Contact" },
+  { href: "/venture", label: "Venture" },
+  { href: "/faq", label: "FAQ" },
+];
+const path = Astro.url.pathname;
+const etsy = "https://www.etsy.com/listing/4368469267/3d-dnarna-assembly-kit-stem-learning-kit?etsrc=sdt";
 ---
-<nav class="w-full">
-  <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-    <a href="/" class="font-bold text-lg">DNA Assembly Education</a>
-    <ul class="flex gap-6 text-sm">
-      <li><a href="/" class="hover:underline">Home</a></li>
-      <li><a href="/product" class="hover:underline">Product</a></li>
-      <li><a href="/mission" class="hover:underline">Mission</a></li>
-      <li><a href="/founders" class="hover:underline">Founders</a></li>
-      <li><a href="/contact" class="hover:underline">Contact</a></li>
-    </ul>
-  </div>
-</nav>
 
+<header class="nav-root">
+  <!-- brand (left) -->
+  <div class="brand"><a href="/">DNA Assembly Education</a></div>
+
+  <!-- centered links -->
+  <nav class="nav-center" aria-label="Primary">
+    {LINKS.map(l => (
+      <a href={l.href} aria-current={path === l.href ? "page" : undefined}>{l.label}</a>
+    ))}
+  </nav>
+
+  <!-- actions (right) -->
+  <div class="nav-actions">
+    <a class="icon-btn" href={etsy} target="_blank" rel="noopener" aria-label="View on Etsy" title="View on Etsy">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M6 6l-2-2H2"/>
+      </svg>
+    </a>
+
+    <details class="menu">
+      <summary class="icon-btn" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </summary>
+      <div class="sheet" role="menu">
+        {LINKS.map(l => (
+          <a role="menuitem" href={l.href} aria-current={path === l.href ? "page" : undefined}>{l.label}</a>
+        ))}
+        <a role="menuitem" href={etsy} target="_blank" rel="noopener">View on Etsy</a>
+      </div>
+    </details>
+  </div>
+</header>
+
+<style>
+  :root { --nav-gap: 1.25rem; } /* adjust spacing between center links */
+
+  /* === Base: single row (wide screens) === */
+  .nav-root{
+    display:grid;
+    grid-template-columns: auto 1fr auto;             /* brand | center | actions */
+    grid-template-areas: "brand center actions";
+    align-items:center;
+    height:64px;
+  }
+  .brand { grid-area: brand; }
+  .nav-center { grid-area: center; display:flex; justify-content:center; align-items:center; gap:var(--nav-gap); min-width:0; }
+  .nav-actions { grid-area: actions; display:flex; align-items:center; gap:.5rem; justify-self:end; }
+
+  .brand a{
+    font-family:'Plus Jakarta Sans', Inter, system-ui, sans-serif;
+    font-weight:800; color:var(--brand-text, #1E3A8A);
+    font-size:1.125rem; letter-spacing:.2px; text-decoration:none; white-space:nowrap;
+  }
+  .nav-center a{
+    color:var(--text, #0F172A); text-decoration:none; padding:.25rem .6rem; border-radius:10px; white-space:nowrap;
+  }
+  .nav-center a:hover, .nav-center a[aria-current="page"]{ background:var(--pastel-blue, #BFDBFE); }
+
+  .icon-btn{
+    width:38px; height:38px; display:inline-flex; align-items:center; justify-content:center;
+    border:1px solid var(--border, #E2E8F0); background:#fff; border-radius:12px;
+  }
+
+  /* Dropdown sheet */
+  details.menu{ position:relative; }
+  details.menu .sheet{
+    position:absolute; right:0; top:44px;
+    background:#fff; border:1px solid var(--border, #E2E8F0);
+    border-radius:14px; box-shadow:0 10px 30px rgba(2,6,23,.06);
+    min-width:240px; padding:.25rem 0; display:none; z-index:100;
+  }
+  details.menu[open] .sheet{ display:flex; flex-direction:column; }
+  .sheet a{ display:block; padding:.85rem 1rem; color:var(--text, #0F172A); text-decoration:none; white-space:nowrap; }
+  .sheet a + a{ border-top:1px solid var(--border, #E2E8F0); }
+
+  /* === Medium screens: auto switch to TWO ROWS (prevents overlap) === */
+  @media (max-width: 1240px){
+    .nav-root{
+      grid-template-columns: auto 1fr auto;
+      grid-template-areas:
+        "brand . actions"
+        "center center center";
+      row-gap: 6px;                          /* small divider space between rows */
+      height: auto;
+    }
+  }
+
+  /* === Small screens: hide center links, use dropdown === */
+  @media (max-width: 940px){
+    .nav-root{
+      grid-template-columns: auto 1fr auto;
+      grid-template-areas: "brand . actions";
+    }
+    .nav-center{ display:none; }
+  }
+</style>

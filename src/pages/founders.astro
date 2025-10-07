@@ -1,25 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Founders — DNA Assembly Education">
-  <h1 class="text-3xl font-bold">Founders</h1>
-  <div class="mt-4 grid gap-6 sm:grid-cols-2">
-    <article class="border rounded-xl p-4">
-      <h2 class="font-semibold">Founder Name</h2>
-      <p class="text-sm text-gray-600">Role • Short bio line here.</p>
-      <div class="mt-2 flex gap-3 text-sm">
-        <a class="hover:underline" href="mailto:hello@example.com">Email</a>
-        <a class="hover:underline" href="#" rel="noopener">LinkedIn</a>
-      </div>
-    </article>
-    <article class="border rounded-xl p-4">
-      <h2 class="font-semibold">Founder Name</h2>
-      <p class="text-sm text-gray-600">Role • Short bio line here.</p>
-      <div class="mt-2 flex gap-3 text-sm">
-        <a class="hover:underline" href="mailto:hello@example.com">Email</a>
-        <a class="hover:underline" href="#" rel="noopener">LinkedIn</a>
-      </div>
-    </article>
-  </div>
+<Layout title="Founders — Team">
+  <section class="section">
+    <h1 class="h1">Founders</h1>
+    <div class="grid-2" style="margin-top:1.25rem">
+      <article class="card">
+        <div style="display:flex;gap:1rem;align-items:center">
+          <div style="width:84px;height:84px;border-radius:16px;background:var(--pastel-blue)"></div>
+          <div>
+            <h2 class="h2" style="margin:0">Esteban — Co‑founder</h2>
+            <p class="muted" style="margin:.15rem 0 0">Product design, 3‑D printing, classroom usability.</p>
+          </div>
+        </div>
+        <p style="margin-top:.75rem">Leads prototyping and manufacturing; ensures colour‑coding and snap‑fit geometry map cleanly to DNA/RNA rules.</p>
+      </article>
+      <article class="card">
+        <div style="display:flex;gap:1rem;align-items:center">
+          <div style="width:84px;height:84px;border-radius:16px;background:var(--pastel-green)"></div>
+          <div>
+            <h2 class="h2" style="margin:0">Preston Roser — Co‑founder</h2>
+            <p class="muted" style="margin:.15rem 0 0">Curriculum & software, ASU.</p>
+          </div>
+        </div>
+        <p style="margin-top:.75rem">Builds teacher resources and the digital platform for downloads and updates.</p>
+      </article>
+    </div>
+  </section>
 </Layout>
 
