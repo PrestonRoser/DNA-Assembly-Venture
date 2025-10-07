@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Contact — DNA Assembly Education">
+  <h1 class="text-3xl font-bold">Contact</h1>
+  <p class="mt-3">Tell us a bit about you and how you'd use the kit.</p>
+
+  <!-- Replace action below with your Formspree endpoint when ready -->
+  <form action="#" method="POST" class="mt-6 max-w-md space-y-4">
+    <label class="block">
+      <span class="text-sm">Name</span>
+      <input name="name" required class="mt-1 w-full border rounded-md px-3 py-2" />
+    </label>
+    <label class="block">
+      <span class="text-sm">Email</span>
+      <input type="email" name="email" required class="mt-1 w-full border rounded-md px-3 py-2" />
+    </label>
+    <label class="block">
+      <span class="text-sm">Message</span>
+      <textarea name="message" rows="4" required class="mt-1 w-full border rounded-md px-3 py-2"></textarea>
+    </label>
+    <button type="submit" class="rounded-lg px-4 py-2 border border-gray-300 hover:bg-gray-50">Send</button>
+  </form>
+</Layout>
+
