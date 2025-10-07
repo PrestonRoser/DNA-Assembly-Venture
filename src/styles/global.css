@@ -2,3 +2,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ============== Brand components & utilities ============== */
+@layer components {
+  .heading-hero { @apply font-display font-extrabold tracking-tight text-4xl md:text-5xl lg:text-6xl text-neutral-900; }
+  .heading-section { @apply font-display font-bold text-2xl md:text-3xl text-neutral-900; }
+  .kicker { @apply uppercase tracking-widest text-[0.78rem] font-semibold text-neutral-500; }
+  .lead { @apply text-[1.05rem] md:text-lg leading-7 text-neutral-600; }
+
+  .btn { @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition-colors; }
+  .btn-primary { @apply btn bg-brand-600 text-white hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-300; }
+  .btn-ghost { @apply btn bg-white text-neutral-700 border border-neutral-200 hover:bg-neutral-50; }
+  .btn-link { @apply inline-flex items-center gap-1 text-brand-700 hover:text-brand-800 underline underline-offset-4; }
+
+  .card { @apply bg-white border border-neutral-200 rounded-2xl shadow-card; }
+  .nav-link { @apply text-[15px] text-neutral-700 hover:text-neutral-900 px-3 py-2 rounded-xl transition-colors; }
+  .nav-link[aria-current="page"] { @apply bg-brand-100 text-brand-800; }
+}
+
+@layer utilities {
+  .focus-ring { @apply focus:outline-none focus:ring-4 focus:ring-brand-300; }
+  .font-display { font-family: var(--font-display); }
+  .font-sans { font-family: var(--font-sans); }
+}
