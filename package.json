@@ -1,20 +1,23 @@
 {
-<<<<<<< HEAD
-  "name": "astrobase",
-=======
   "name": "dnaweb",
->>>>>>> 7f9bbf3 (Initial commit from Astro)
-  "type": "module",
   "version": "0.0.1",
+  "private": true,
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
+    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "check": "astro check",
+    "format": "prettier --write ."
   },
   "dependencies": {
+    "astro": "^4.13.1"
+  },
+  "devDependencies": {
     "@tailwindcss/vite": "^4.1.14",
-    "astro": "^5.14.1",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.0",
     "tailwindcss": "^4.1.14"
   }
 }
