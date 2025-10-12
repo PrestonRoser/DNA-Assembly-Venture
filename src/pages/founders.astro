@@ -1,67 +1,69 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Founders — SproutForge3D">
+<Layout title="Founders — Team">
   <section class="section">
-    <h1 class="h1">Founders</h1>
-    <p class="lead">We’re a small, classroom‑obsessed team building better tools for learning biology — starting with DNA and RNA kits that actually feel good to use.</p>
-    <div class="grid-2" style="margin-top:1.5rem">
+    <p class="kicker">Founders</p>
+    <div class="grid-vertical grid-vertical--spaced" style="margin-top:1.25rem">
 
       <!-- Esteban -->
-      <article class="card">
+      <article class="">
         <div style="display:flex;gap:1rem;align-items:center">
           <div style="width:84px;height:84px;border-radius:16px;background:var(--pastel-blue)"></div>
           <div>
-            <h2 class="h2" style="margin:0">Esteban Gardea — Co‑founder</h2>
-            <p class="muted" style="margin:.15rem 0 0">Biochemical engineering @ ASU • Head of 3‑D & product design</p>
+            <h1 class="h1" style="margin:0">Esteban Gardea — Founder</h1>
+            <p class="muted" style="margin:.15rem 0 0">Biochemical engineering at ASU. Product design, 3‑D printing, classroom usability.</p>
+            <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem">
+              <a class="btn-primary" href="https://www.linkedin.com/in/esteban-gardea-8a00a9232/" aria-label="Esteban LinkedIn">LinkedIn</a>
+              <a class="btn-primary" href="mailto:gardeaesteban992@gmail.com">Email</a>
+            </div>
           </div>
         </div>
         <p style="margin-top:.75rem">
-          Esteban brings an invention‑first mindset to our kits. He prototypes fast, listens to teacher feedback, and iterates until
-          the parts snap together cleanly and the activity “clicks.” His background spans biotechnologies, molecular sciences,
-          teaching, and 3‑D printing — the mix that turns classroom pain points into solid, durable parts.
+          Leads prototyping and manufacturing. Designs the snap‑fit geometry so base‑pairing is intuitive.
+          Bridges biotechnology concepts with durable, classroom‑ready parts.
         </p>
-        <p>
-          He leads our geometry and tolerance work: base pairing that’s obvious but precise, strand direction that’s visible,
-          and components that survive real classroom handling.
-        </p>
-        <div class="flex items-center gap-3" style="margin-top:.5rem">
-          <a class="btn-ghost" href="#" aria-label="LinkedIn (Esteban)">LinkedIn</a>
-          <a class="btn-ghost" href="mailto:sproutforged@gmail.com" aria-label="Email (Esteban)">Email</a>
-        </div>
       </article>
 
       <!-- Preston -->
-      <article class="card">
-        <div style="display:flex;gap:1rem;align-items:center">
-          <div style="width:84px;height:84px;border-radius:16px;background:var(--pastel-green)"></div>
-          <div>
-            <h2 class="h2" style="margin:0">Preston Roser — Co‑founder</h2>
-            <p class="muted" style="margin:.15rem 0 0">Computer Science @ ASU • Curriculum, software & outreach</p>
-          </div>
-        </div>
-        <p style="margin-top:.75rem">
-          Preston focuses on learning experience. He turns complex concepts into clear steps, writes teacher‑ready guides,
-          and builds the software that supports downloads, updates, and educator community. He’s passionate about access —
-          getting high‑quality materials into more classrooms, for less.
-        </p>
-        <p>
-          Strengths include product storytelling, educator interviews, and building the tiny details that reduce prep time.
-        </p>
-        <div class="flex items-center gap-3" style="margin-top:.5rem">
-          <a class="btn-ghost" href="#" aria-label="LinkedIn (Preston)">LinkedIn</a>
-          <a class="btn-ghost" href="#" aria-label="GitHub (Preston)">GitHub</a>
-          <a class="btn-ghost" href="mailto:sproutforged@gmail.com" aria-label="Email (Preston)">Email</a>
-        </div>
-      </article>
-    </div>
+      <div class="person">
+	<img
+          src="/images/preston-headshot.png"
+          alt="Preston Roser headshot"
+          class="headshot"
+          loading="lazy"
+          width="96"
+	  height="96"
+	/>
 
-    <div class="card" style="margin-top:1.25rem">
-      <p class="muted" style="margin:0">
-        Operating as <strong>SproutForge3D LLC</strong> while we continue to refine our naming. Find us on Instagram at <strong>@sproutforged</strong> or email
-        <a href="mailto:sproutforged@gmail.com">sproutforged@gmail.com</a>.
-      </p>
+        <div class="person-body">
+	  <h1 class="h1">Preston Roser — Co-founder</h1>
+	    <p class="muted">
+	      Computer Science at ASU. Curriculum, software, outreach.
+	    </p>
+
+	  <div class="person-actions">
+	    <a class="btn-primary" href="https://www.linkedin.com/in/prestonroser/" aria-label="Preston LinkedIn">LinkedIn</a>
+ 	    <a class="btn-primary" href="mailto:prestonroser@gmail.com">Email</a>
+ 	    <a class="btn-primary" href="https://github.com/PrestonRoser" aria-label="Preston GitHub">GitHub</a>
+          </div>
+
+	  <p class="muted" style="margin-top:.75rem">
+	    Builds teacher resources and the digital platform for updates. Focused on access-first design, clean docs, and smooth classroom adoption.
+	  </p>
+	</div>
+      </div>
+
+    <!-- Business socials (bottom block) -->
+    <div class="" style="margin-top:1rem; margin-left:3rem;">
+      <p class="kicker">SproutForge3D LLC</p>
+      <div style="display:flex;flex-wrap:wrap;gap:.5rem">
+        <a class="btn-primary" href="mailto:sproutforged@gmail.com">sproutforged@gmail.com</a>
+        <a class="btn-primary" href="https://instagram.com/sproutforged" target="_blank" rel="noopener">@sproutforged</a>
+        <a class="btn-primary" href="https://sproutforge3d.etsy.com" target="_blank" rel="noopener">Etsy store</a>
+      </div>
     </div>
   </section>
 </Layout>
+
 
