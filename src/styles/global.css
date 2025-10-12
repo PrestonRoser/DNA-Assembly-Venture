@@ -1,27 +1,213 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-/* ============== Brand components & utilities ============== */
-@layer components {
-  .heading-hero { @apply font-display font-extrabold tracking-tight text-4xl md:text-5xl lg:text-6xl text-neutral-900; }
-  .heading-section { @apply font-display font-bold text-2xl md:text-3xl text-neutral-900; }
-  .kicker { @apply uppercase tracking-widest text-[0.78rem] font-semibold text-neutral-500; }
-  .lead { @apply text-[1.05rem] md:text-lg leading-7 text-neutral-600; }
-
-  .btn { @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition-colors; }
-  .btn-primary { @apply btn bg-brand-600 text-white hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-300; }
-  .btn-ghost { @apply btn bg-white text-neutral-700 border border-neutral-200 hover:bg-neutral-50; }
-  .btn-link { @apply inline-flex items-center gap-1 text-brand-700 hover:text-brand-800 underline underline-offset-4; }
-
-  .card { @apply bg-white border border-neutral-200 rounded-2xl shadow-card; }
-  .nav-link { @apply text-[15px] text-neutral-700 hover:text-neutral-900 px-3 py-2 rounded-xl transition-colors; }
-  .nav-link[aria-current="page"] { @apply bg-brand-100 text-brand-800; }
+/* ---------- Tailwind v4 theme tokens (brand palette) ---------- */
+/* Enables bg-brand-600, text-brand-800, ring-brand-300, etc.     */
+/* Values are space-separated RGB (no commas).                     */
+@theme {
+  --color-brand-50: 239 246 255;
+  --color-brand-100: 219 234 254;
+  --color-brand-200: 191 219 254;
+  --color-brand-300: 147 197 253;
+  --color-brand-400: 96 165 250;
+  --color-brand-500: 59 130 246;
+  --color-brand-600: 37 99 235;   /* #2563eb */
+  --color-brand-700: 29 78 216;   /* #1d4ed8 */
+  --color-brand-800: 30 64 175;   /* #1e40af */
+  --color-brand-900: 30 58 138;
 }
 
+/* ---------------- Site variables (safe to use anywhere) ---------------- */
+:root {
+  --bg: #f7f7fb;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: #e2e8f0;
+  --shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ---------------- Base defaults ---------------- */
+html, body {
+  margin: 0;
+  background: var(--bg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--text);
+  font-family: var(--font-sans);
+}
+
+/* ---------------- Components (Tailwind utilities only) ---------------- */
+@layer components {
+  /* Headings (use CSS for the font family; @apply only TW utils) */
+  .heading-hero {
+    font-family: var(--font-display);
+    @apply font-extrabold tracking-tight text-4xl md:text-5xl lg:text-6xl text-neutral-900;
+  }
+  .heading-section {
+    font-family: var(--font-display);
+    @apply font-bold text-2xl md:text-3xl text-neutral-900;
+  }
+
+  .kicker { @apply uppercase tracking-widest text-[0.78rem] font-semibold text-neutral-500; }
+  .lead   { @apply text-[1.05rem] md:text-lg leading-7 text-neutral-600; }
+
+  /* Generic button base (can be used directly in markup) */
+  .btn { @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition-colors; }
+
+  /* Variants DO NOT @apply .btn (custom) — only Tailwind utilities */
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 text-[15px] font-medium 
+           px-4 py-2 rounded-xl transition-colors
+           text-neutral-700 no-underline bg-transparent border-0 shadow-none;
+  }
+
+  .btn-ghost:hover {
+    /* match your Footer hover: pale blue bg + brand-ish text */
+    background: rgb(230,240,255);
+    color: rgb(31,75,184);
+  }
+
+  .btn-ghost:focus-visible {
+    @apply outline-none ring-4;
+    /* match your focus ring tone if you have one */
+    /* fallback if no --brand-300 variable */
+    box-shadow: 0 0 0 4px rgba(31,75,184,.25);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition-colors;
+    @apply bg-white text-neutral-700 border border-neutral-200 hover:bg-neutral-50;
+  }
+
+  .btn-link {
+    @apply inline-flex items-center gap-1 underline underline-offset-4 text-brand-700 hover:text-brand-800;
+  }
+  .card {
+    @apply bg-white border border-neutral-200 rounded-2xl px-5 py-3;
+    box-shadow: var(--shadow);
+  }
+  .nav-link {
+    @apply text-[15px] text-neutral-700 hover:text-neutral-900 px-3 py-2 rounded-xl transition-colors;
+  }
+  .nav-link[aria-current="page"] {
+    @apply bg-brand-100 text-brand-800;
+  }
+
+  /* Headshots/person(s) */
+  .person {
+    display: flex;
+    align-items: center;
+    gap: 1rem;            /* space between photo and text */
+    min-width: 0;         /* allow text to wrap instead of overflow */
+  }
+
+  .person-body { min-width: 0; }
+
+  .headshot {
+    width: 96px;
+    height: 96px;
+    border-radius: 16px;
+    object-fit: cover;    /* fill the box without distortion */
+    background: var(--pastel-green); /* fallback color while loading */
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    flex: 0 0 auto;
+  }
+
+  /* Slightly larger photo on wider screens */
+  @media (min-width: 768px) {
+    .headshot { width: 128px; height: 128px; }
+    .person .headshot {
+      width: 132px;           /* slimmer */
+      height: 148px;          /* taller */
+      object-fit: cover;      /* keep face framed */
+      object-position: 50% 20%; /* optional: lift crop slightly */
+      margin-top: .1rem;      /* tiny optical nudge */
+    }
+  }
+
+  /* Spacing inside the text block */
+  .person h2 { margin: 0; }
+  .person .muted { margin: .15rem 0 0; }
+
+  /* Row of actions under the blurb */
+  .person-actions {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    margin-top: .5rem;
+  }
+
+  .container { max-width:1180px; margin:0 auto; padding:0 1rem; }
+  .section   { padding:4rem 0; }
+
+  /* Keep these separate from your existing .heading-* utilities */
+  .h1 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    line-height: 1.1;
+    margin: 0;
+  }
+  .h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.75rem;
+    margin: 0 0 .25rem;
+  }
+
+  .grid-2 { display: grid; gap: 1.75rem; }
+  @media (min-width: 960px) {
+    .grid-2 { grid-template-columns: 1.15fr .85fr; }
+  }
+
+  /* Force a single-column stack even where .grid-2 would go 2-up */
+  .grid-vertical { grid-template-columns: 1fr; }
+
+  /* Ensure it also wins at ≥960px where .grid-2 sets 1.15fr .85fr */
+  @media (min-width: 960px) {
+    .grid-2.grid-vertical { grid-template-columns: 1fr; }
+  }
+
+  /* Option A — extra space between people */
+  .grid-vertical--spaced > *:not(:last-child) {
+    row-gap: 3rem;
+    padding-bottom: 3rem;             /* space above the line */
+    border-bottom: 1px solid var(--border);
+    margin: 3rem; 
+  }
+
+  /* Option B — divider between people (keeps footer line unchanged) */
+  .grid-vertical--divided { row-gap: 2rem; }
+
+  .grid-vertical--divided > *:not(:last-child) {
+    padding-bottom: 3rem;                 /* space above the line */
+    border-bottom: 1px solid var(--border); /* the ONLY divider */
+  }
+
+  .hr { height:1px; background: var(--border); margin: 2.25rem 0; }
+
+  /* Sticky header wrapper used around <Navbar /> */
+  .nav-wrap {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(255,255,255,0.88);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);
+    backdrop-filter: saturate(180%) blur(10px);
+    border-bottom: 1px solid rgba(59,124,255,0.15);
+  }
+
+  /* Optional: class for the footer divider you used inline */
+  .footer-divider { border-top: 1px solid var(--border); }
+}
+
+/* ---------------- Utilities (small helpers) ---------------- */
 @layer utilities {
   .focus-ring { @apply focus:outline-none focus:ring-4 focus:ring-brand-300; }
   .font-display { font-family: var(--font-display); }
-  .font-sans { font-family: var(--font-sans); }
+  .font-sans    { font-family: var(--font-sans); }
 }
+

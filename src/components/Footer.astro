@@ -1,32 +1,59 @@
 ---
 const year = new Date().getFullYear();
 ---
-<div>
-  <strong style="font-family:'Plus Jakarta Sans',Inter,sans-serif;font-weight:800;color:var(--brand-text)">DNA Assembly Education</strong>
-  <p class="muted" style="margin:.3rem 0 0">Hands‑on tools for modern biology.</p>
-  <p class="muted">© {year}</p>
-</div>
-<div>
-  <h3 class="h2" style="font-size:1rem">Explore</h3>
-  <a href="/product">Product</a><br/>
-  <a href="/mission">Mission</a><br/>
-  <a href="/founders">Founders</a><br/>
-  <a href="/venture">Venture</a><br/>
-  <a href="/contact">Contact</a>
-</div>
-<div>
-  <h3 class="h2" style="font-size:1rem">Resources</h3>
-  <a href="https://www.etsy.com/listing/4368469267/3d-dnarna-assembly-kit-stem-learning-kit?etsrc=sdt" target="_blank" rel="noopener">Etsy</a><br/>
-  <span class="muted">Lesson guides (soon)</span>
-</div>
-<div>
-  <h3 class="h2" style="font-size:1rem">Brand</h3>
-  <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.25rem">
-    <span class="pill" style="background:var(--pastel-blue)">Blue</span>
-    <span class="pill" style="background:var(--pastel-green)">Green</span>
-    <span class="pill" style="background:var(--pastel-yellow)">Yellow</span>
-    <span class="pill" style="background:var(--pastel-red)">Red</span>
+<footer class="footer-root">
+  <div class="footer-inner">
+    <div class="brandline">
+      <strong class="brand">Sprout Ed</strong>
+      <span class="muted">© {year}</span>
+    </div>
+
+    <nav class="links">
+      <a href="/product">Product</a>
+      <span class="dot">•</span>
+      <a href="/mission">Mission</a>
+      <span class="dot">•</span>
+      <a href="/founders">Founders</a>
+      <span class="dot">•</span>
+      <a href="/venture">Venture</a>
+      <span class="dot">•</span>
+      <a href="/contact">Contact</a>
+      <span class="dot">•</span>
+      <a href="/faq">FAQ</a>
+      <span class="dot">•</span>
+      <a href="https://www.etsy.com/listing/4368469267/3d-dnarna-assembly-kit-stem-learning-kit?etsrc=sdt" target="_blank" rel="noopener">Etsy</a>
+    </nav>
   </div>
-</div>
+</footer>
+
+<style>
+  .footer-root {
+    background: var(--bg);                    /* seamless with page */
+    /* or: background: rgb(243 245 250);     */
+    border-top: 1px solid rgba(202, 210, 220, 0.8);
+    margin-top: 2.5rem;
+  }
+  .footer-inner{
+    max-width:1180px; margin:0 auto; padding: 1rem; display:flex; flex-direction:column; gap:.5rem;
+  }
+  .brandline{
+    display:flex; align-items:center; gap:.6rem; color:rgb(71, 84, 103);
+  }
+  .brand{
+    font-family: var(--font-display, 'Manrope', Inter, system-ui, sans-serif);
+    font-weight:800; color: rgb(31,75,184);
+  }
+  .links{
+    display:flex; flex-wrap:wrap; gap:.5rem .6rem; align-items:center; color: rgb(71,84,103);
+  }
+  .links a{
+    text-decoration:none; color:inherit; padding:.2rem .4rem; border-radius:.5rem;
+    transition: background-color .15s ease, color .15s ease;
+  }
+  .links a:hover{
+    background: rgb(230,240,255); color: rgb(31,75,184);
+  }
+  .dot{ opacity:.5; }
+</style>
 
 

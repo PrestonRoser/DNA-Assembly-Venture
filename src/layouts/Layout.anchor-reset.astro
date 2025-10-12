@@ -1,7 +1,7 @@
 ---
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-const { title = "DNA Assembly Education", description = "Hands-on STEM DNA/mRNA learning kit and classroom resources" } = Astro.props;
+const { title = "DNA Assembly Education", description = "Hands-on STEM: DNA/mRNA learning kit and classroom resources" } = Astro.props;
 ---
 <html lang="en">
   <head>
@@ -16,25 +16,27 @@ const { title = "DNA Assembly Education", description = "Hands-on STEM DNA/mRNA 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
 
-    <!-- Global styles (already include Tailwind + your components) -->
-    <link rel="stylesheet" href="/src/styles/global.css" />
+    <style>
+      /* Minimal anchor reset to avoid old-style underlines site-wide.
+         Leave component buttons/links to style themselves. */
+      a { text-decoration: none; color: inherit; }
+    </style>
   </head>
-  <body class="min-h-dvh bg-neutral-50 text-neutral-900">
+  <body>
     <div class="nav-wrap">
       <div class="container">
         <Navbar />
       </div>
     </div>
-
     <main class="container">
       <slot />
     </main>
-
-    <footer class="section footer-divider">
+    <footer class="section" style="border-top:1px solid var(--border)">
       <div class="container">
         <Footer />
       </div>
     </footer>
   </body>
 </html>
+
 
