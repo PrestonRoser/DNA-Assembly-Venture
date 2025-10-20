@@ -7,63 +7,151 @@ import Layout from '../layouts/Layout.astro';
     <div class="grid-vertical grid-vertical--spaced" style="margin-top:1.25rem">
 
       <!-- Esteban -->
-      <article class="">
-        <div style="display:flex;gap:1rem;align-items:center">
-          <div style="width:84px;height:84px;border-radius:16px;background:var(--pastel-blue)"></div>
-          <div>
-            <h1 class="h1" style="margin:0">Esteban Gardea — Founder</h1>
-            <p class="muted" style="margin:.15rem 0 0">Biochemical engineering at ASU. Product design, 3‑D printing, classroom usability.</p>
-            <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem">
-              <a class="btn-primary" href="https://www.linkedin.com/in/esteban-gardea-8a00a9232/" aria-label="Esteban LinkedIn">LinkedIn</a>
-              <a class="btn-primary" href="mailto:gardeaesteban992@gmail.com">Email</a>
-            </div>
+      <div class="person">
+        <img
+          src="/images/esteban-headshot.png"
+          alt="Esteban Gardea headshot"
+          class="headshot"
+          loading="lazy"
+          width="160"
+          height="160"
+        />
+
+        <div class="person-body">
+          <h1 class="h1">Esteban Gardea - Founder</h1>
+          <p class="muted">
+            Studying biochemical engineering at Arizona State University.
+            Focused on HANDS: Product design, 3-D printing, and kit to classroom usability.
+          </p>
+
+          <div class="person-actions icons">
+            <!-- LinkedIn -->
+            <a class="icon-btn focus-ring" href="https://www.linkedin.com/in/esteban-gardea-8a00a9232/" target="_blank" rel="noopener" aria-label="Esteban on LinkedIn" title="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5z"/>
+                <path d="M3.5 9h3v11h-3z"/>
+                <path d="M10 9h3v1.9h.04c.42-.8 1.46-1.9 3.36-1.9 3.6 0 4.27 2.37 4.27 5.45V20h-3v-5.2c0-1.24-.02-2.84-1.73-2.84-1.74 0-2.01 1.36-2.01 2.75V20h-3z"/>
+              </svg>
+            </a>
+
+            <!-- Email -->
+            <a class="icon-btn focus-ring" href="mailto:gardeaesteban992@gmail.com" aria-label="Email Esteban" title="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path d="M4 6h16v12H4z"/><path d="M22 6l-10 7L2 6"/>
+              </svg>
+            </a>
           </div>
+
+          <p class="muted" style="margin-top:.75rem">
+            Leads prototyping and manufacturing. Designs the snap-fit geometry so base-pairing is intuitive.
+            Bridges biotechnology concepts with durable, classroom-ready parts.
+          </p>
+	  
+          <!-- Founder story as a highlighted quote -->
+          <div class="founder-quote prominent" style="margin-top:1rem">
+            <p>
+	      SproutForge3D began with a simple realization that something essential was missing in science education. 
+	      As a biochemist pursuing a Bachelor’s degree in Biochemistry with a focus in Medicinal Pharmacology at Arizona State University, 
+	      I saw that even in well-equipped classrooms, students rarely had physical tools that could help them understand molecular structures and reactions in a hands on way. 
+	      They were being asked to imagine what they could not see, and that limited how deeply they could engage with the material.
+	    </p>
+	    <p>
+	      That gap became my focus. I began 3D printing small prototypes such as molecular models, chemistry racks, 
+	      and visual tools that could turn abstract processes into something students could actually build and explore. 
+	      Those early designs did not always work. Many failed, broke, or did not fit together the way I envisioned, but each one taught me something new about design, 
+	      usability, and how learners connect with science when it becomes tangible.
+	    </p>
+	    <p>
+	      Over time, those countless iterations led to something greater. 
+	      What started as late night experiments with a single 3D printer grew into SproutForge3D, an educational technology company dedicated to making science visible and touchable. 
+	      With every product, I strive to bridge the gap between theory and experience, between seeing science and doing science.
+	    </p>
+	    <p>
+	      My goal has always been to give students access to the same curiosity that first inspired me to pursue science. 
+	      Every product we create carries the same persistence, creativity, and hands on discovery that shaped my own learning and continues to drive me today.
+	    </p>
+	  </div>
         </div>
-        <p style="margin-top:.75rem">
-          Leads prototyping and manufacturing. Designs the snap‑fit geometry so base‑pairing is intuitive.
-          Bridges biotechnology concepts with durable, classroom‑ready parts.
-        </p>
-      </article>
+      </div>
 
       <!-- Preston -->
       <div class="person">
-	<img
+        <img
           src="/images/preston-headshot.png"
           alt="Preston Roser headshot"
           class="headshot"
           loading="lazy"
-          width="96"
-	  height="96"
-	/>
+          width="160"
+          height="160"
+        />
 
         <div class="person-body">
-	  <h1 class="h1">Preston Roser — Co-founder</h1>
-	    <p class="muted">
-	      Computer Science at ASU. Curriculum, software, outreach.
-	    </p>
+          <h1 class="h1">Preston Roser - Co-founder</h1>
+          <p class="muted">
+            Studying Computer Science at Arizona State University.
+            Focused on HANDS: Curriculum, software, and general outreach.
+          </p>
 
-	  <div class="person-actions">
-	    <a class="btn-primary" href="https://www.linkedin.com/in/prestonroser/" aria-label="Preston LinkedIn">LinkedIn</a>
- 	    <a class="btn-primary" href="mailto:prestonroser@gmail.com">Email</a>
- 	    <a class="btn-primary" href="https://github.com/PrestonRoser" aria-label="Preston GitHub">GitHub</a>
+          <!-- Preston actions (icons) -->
+          <div class="person-actions icons">
+            <a class="icon-btn focus-ring" href="https://www.linkedin.com/in/prestonroser/" target="_blank" rel="noopener" aria-label="Preston on LinkedIn" title="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5z"/>
+                <path d="M3.5 9h3v11h-3z"/>
+                <path d="M10 9h3v1.9h.04c.42-.8 1.46-1.9 3.36-1.9 3.6 0 4.27 2.37 4.27 5.45V20h-3v-5.2c0-1.24-.02-2.84-1.73-2.84-1.74 0-2.01 1.36-2.01 2.75V20h-3z"/>
+              </svg>
+            </a>
+
+            <a class="icon-btn focus-ring" href="mailto:prestonroser@gmail.com" aria-label="Email Preston" title="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path d="M4 6h16v12H4z"/><path d="M22 6l-10 7L2 6"/>
+              </svg>
+            </a>
+
+            <a class="icon-btn focus-ring" href="https://github.com/PrestonRoser" target="_blank" rel="noopener" aria-label="Preston on GitHub" title="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path d="M12 .5a11.5 11.5 0 00-3.64 22.42c.58.11.8-.25.8-.56v-2.06c-3.26.72-3.95-1.4-3.95-1.4-.53-1.34-1.3-1.7-1.3-1.7-1.06-.73.08-.72.08-.72 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.77.41-1.27.75-1.56-2.6-.3-5.33-1.3-5.33-5.78 0-1.28.46-2.32 1.2-3.14-.12-.3-.52-1.52.11-3.17 0 0 .98-.31 3.2 1.2a11 11 0 015.82 0c2.22-1.51 3.2-1.2 3.2-1.2.63 1.65.23 2.87.11 3.17.75.82 1.2 1.86 1.2 3.14 0 4.49-2.74 5.47-5.35 5.77.42.36.8 1.08.8 2.19v3.24c0 .31.21.68.81.56A11.5 11.5 0 0012 .5z"/>
+              </svg>
+            </a>
           </div>
 
-	  <p class="muted" style="margin-top:.75rem">
-	    Builds teacher resources and the digital platform for updates. Focused on access-first design, clean docs, and smooth classroom adoption.
-	  </p>
-	</div>
+          <p class="muted" style="margin-top:.75rem">
+            Builds teacher resources and the digital platform for updates. Focused on access first design, clean docs, and smooth classroom adoption.
+          </p>
+
+          <!-- Founder story as a highlighted quote -->
+          <div class="founder-quote prominent" style="margin-top:1rem">
+            <p> 
+    		While pursuing my degree in Computer Science at Arizona State University, I often found that complex concepts
+    		lacked the hands on clarity needed to truly understand them. I was fortunate to have mentors and peers who helped
+    		turn abstract ideas into tangible understanding, but that is not always the case. Many students do not have
+    		someone to lean on when a concept does not click, and that is exactly where hands on learning becomes essential.	
+	    </p>
+            <p>
+		When I met Esteban at Starbucks, his early prototype immediately stood out as something more than a classroom
+    		tool. It was a bridge between learning and doing, a way for students to take ownership of their understanding.
+    		His vision for making abstract science touchable matched my belief that real learning happens when knowledge is
+    		placed directly into the student’s hands.
+	    </p>
+            <p>
+		I joined him to help expand that vision, designing digital resources, refining classroom usability, and
+    		reimagining what learning can feel like. To me, Hands is not just a kit or a company; it is a reminder that
+    		discovery belongs to everyone, not just those with access to guidance or resources.
+	    </p>
+          </div>
+        </div>
       </div>
 
-    <!-- Business socials (bottom block) -->
-    <div class="" style="margin-top:1rem; margin-left:3rem;">
-      <p class="kicker">SproutForge3D LLC</p>
-      <div style="display:flex;flex-wrap:wrap;gap:.5rem">
-        <a class="btn-primary" href="mailto:sproutforged@gmail.com">sproutforged@gmail.com</a>
-        <a class="btn-primary" href="https://instagram.com/sproutforged" target="_blank" rel="noopener">@sproutforged</a>
-        <a class="btn-primary" href="https://sproutforge3d.etsy.com" target="_blank" rel="noopener">Etsy store</a>
+      <!-- Business socials (bottom block) -->
+      <div style="margin-top:1rem; margin-left:3rem;">
+        <p class="kicker">SproutForge3D LLC</p>
+        <div style="display:flex;flex-wrap:wrap;gap:.5rem">
+          <a class="btn-primary" href="mailto:sproutforged@gmail.com">sproutforged@gmail.com</a>
+          <a class="btn-primary" href="https://instagram.com/sproutforged" target="_blank" rel="noopener">@sproutforged</a>
+          <a class="btn-primary" href="https://sproutforge3d.etsy.com" target="_blank" rel="noopener">Etsy store</a>
+        </div>
       </div>
     </div>
   </section>
 </Layout>
-
 

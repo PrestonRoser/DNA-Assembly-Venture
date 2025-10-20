@@ -12,6 +12,7 @@ const LINKS = [
   { href: "/founders", label: "Founders" },
   { href: "/contact", label: "Contact" },
   { href: "/venture", label: "Venture" },
+  { href: "/research", label: "Research" },
   { href: "/faq", label: "FAQ" },
 ];
 
@@ -24,13 +25,20 @@ const instagram = 'https://instagram.com/sproutforged';
 const etsy = "https://www.etsy.com/listing/4368469267/3d-dnarna-assembly-kit-stem-learning-kit?etsrc=sdt";
 const bizEmail = "mailto:sproutforged@gmail.com";
 const bizInsta = "https://instagram.com/sproutforged";
+
+// Prefer WEBP logo for modern browsers (small, lossless).
+// Place file at /public/hands-logo-lossless.webp
+const logoPath = "/images/hands-logo-lossless.webp";
 ---
 
 <header class="nav-root">
   <div class="nav-inner">
     <!-- Brand -->
     <div class="brand">
-      <a href="/">Sprout Ed</a>
+      <a href="/" aria-label="HANDS — Home">
+        <img src={logoPath} alt="HANDS logo" class="logo" width="24" height="24" decoding="async" />
+        <span>HANDS</span>
+      </a>
     </div>
 
     <!-- Center navigation -->
@@ -85,8 +93,6 @@ const bizInsta = "https://instagram.com/sproutforged";
           ))}
           <hr class="separator" />
           <a role="menuitem" href={etsy} target="_blank" rel="noopener">Etsy</a>
-          <!-- a role="menuitem" href={bizEmail}>Email</a -->
-          <!-- a role="menuitem" href={bizInsta} target="_blank" rel="noopener">Instagram</a -->
         </div>
       </details>
     </div>
@@ -106,9 +112,6 @@ const bizInsta = "https://instagram.com/sproutforged";
 
 <style>
   :root { --nav-gap: 1.25rem; }
-
-  .nav-root {}
-
   .nav-inner {
     max-width: 1180px;
     margin: 0 auto;
@@ -124,6 +127,7 @@ const bizInsta = "https://instagram.com/sproutforged";
 
   .brand { grid-area: brand; }
   .brand a {
+    display: inline-flex; align-items: center; gap: .5rem;
     font-family: var(--font-display);
     font-weight: 800;
     color: var(--brand-text, #1e3a8a);
@@ -131,6 +135,11 @@ const bizInsta = "https://instagram.com/sproutforged";
     letter-spacing: 0.2px;
     text-decoration: none;
     white-space: nowrap;
+  }
+  .brand .logo {
+    height: 22px; width: 22px;
+    border-radius: .5rem;
+    box-shadow: 0 0 0 1px rgba(31,75,184,.08);
   }
 
   .nav-center {
@@ -143,32 +152,12 @@ const bizInsta = "https://instagram.com/sproutforged";
     font-weight: bold;
   }
 
-  /* Use the global .nav-link component styles (from global.css) */
-
   .nav-actions {
     grid-area: actions;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     justify-self: end;
-  }
-
-  .icon-btn {
-    width: 38px;
-    height: 38px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgb(226 232 240);
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    color: rgb(31 75 184);
-  }
-  .icon-btn:hover {
-    transform: translateY(-1px);
-    transition: transform 0.15s ease;
-    background: rgb(246 248 255);
   }
 
   /* Show two rows before crowding */
@@ -191,11 +180,6 @@ const bizInsta = "https://instagram.com/sproutforged";
     .nav-center { display: none; }
   }
 
-  /* Only show text buttons (Email/Instagram) when there's room */
-  @media (max-width: 780px) {
-    .sm-only { display: none; }
-  }
-
   .menu { position: relative; }
   .sheet {
     position: absolute;
@@ -216,5 +200,4 @@ const bizInsta = "https://instagram.com/sproutforged";
   .sheet a + a { border-top: 1px solid var(--border); }
   .separator { border: 0; height: 1px; background: var(--border); margin: .25rem 0; }
 </style>
-
 
