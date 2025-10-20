@@ -1,0 +1,72 @@
+---
+const { mode = 'compact' } = Astro.props;
+
+// Core questions reused across pages
+const common = [
+  { q: "Does the kit support RNA activities?", a: "Yes. Uracil pieces are included for A–U pairing and single‑strand activities." },
+  { q: "Is there a teachers’ guide?", a: "Yes. Downloadable lesson plans, worksheets, and answer guides are included." },
+  { q: "What age range is this for?", a: "Recommended for ages 10+ (small parts). Perfect for middle to high-school biology." },
+];
+
+// Extended questions for the FAQ page (grouped)
+const sections = [
+  {
+    title: "Kit & Activities",
+    items: [
+      { q: "What’s the difference between DNA and RNA in the kit?", a: "DNA uses thymine (T) while RNA uses uracil (U). The kit includes both, so you can swap T→U to model transcription." },
+      { q: "Do the colours have specific meanings?", a: "Yes. Bases are colour‑coded (A, T, C, G, U, 5‑mC) and connect to the beige backbone via orange phosphate links." },
+      ...common,
+      { q: "How many students can use one kit?", a: "One kit works well for pairs or small groups (2–4 students). Multiple kits scale to larger classes." },
+      { q: "Is any wet lab work required?", a: "No. This is a clean, dry, 3‑D model designed purely for conceptual learning." },
+    ]
+  },
+  {
+    title: "Ordering & Pricing",
+    items: [
+      { q: "Do you offer educator pricing?", a: "Yes. Classroom bundles and educator pricing are available—contact us and we’ll tailor a quote." },
+      { q: "Can you work with purchase orders (POs) or W‑9s?", a: "Yes. We can provide a W‑9 and accept POs from schools and districts." },
+      { q: "Do you sell replacement pieces?", a: "Yes. Contact us for small replacement packs (bases, backbones, jigs)." },
+    ]
+  },
+  {
+    title: "Shipping & Materials",
+    items: [
+      { q: "How fast is shipping?", a: "Small batches ship quickly; larger classroom sets may require additional lead time." },
+      { q: "What are the materials?", a: "Pieces are 3D‑printed in durable PLA; colours are chosen for clarity and contrast." },
+      { q: "Is the kit washable?", a: "Yes. Wipe clean with mild soap and water; avoid high heat that can warp PLA." },
+    ]
+  }
+];
+---
+
+{mode === 'compact' ? (
+  <div>
+    {common.map((item) => (
+      <details class="card" style="margin-top:.75rem">
+        <summary>{item.q}</summary>
+        <p>{item.a}</p>
+      </details>
+    ))}
+    <div style="margin-top:1rem">
+      <a class="btn-link" href="/faq">See all FAQs</a>
+    </div>
+  </div>
+) : (
+  <div>
+    {sections.map((section) => (
+      <section class="section" style="padding-top:0">
+        <h2 class="h2">{section.title}</h2>
+        <div class="hr"></div>
+        <div style="display:grid;grid-template-columns:1fr;gap:.75rem">
+          {section.items.map((item) => (
+            <details class="card">
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+)}
+

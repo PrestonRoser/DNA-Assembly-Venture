@@ -1,35 +1,160 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Venture — Updates & Goals">
+<Layout title="Venture — Traction & Roadmap">
   <section class="section">
     <p class="kicker">Updates</p>
-    <h1 class="h1">Pilots & Roadmap</h1>
-    <p class="lead">We’re preparing classroom pilots and collecting educator feedback to improve the kit and resources.</p>
+    <h1 class="h1">Pilots and Roadmap</h1>
+    <p class="lead">
+      We are preparing classroom pilots and collecting educator feedback to improve the kit and resources.
+      This page shares current traction, a nine month plan, and how Venture Devils support accelerates our work.
+    </p>
+
     <div class="hr"></div>
-    <div class="grid-2">
-      <div class="">
-        <h2 class="h2">Near‑term goals</h2>
-        <ul>
-          <li>Deploy pilot kits to partner classrooms and STEM clubs</li>
-          <li>Measure learning outcomes and activity timing</li>
-          <li>Refine lesson plans and answer keys from teacher input</li>
-          <li>Stress‑test components for durability and easier cleanup</li>
+
+    <!-- Traction summary -->
+    <section>
+      <h2 class="h2">Traction</h2>
+      <ul class="dot-list">
+        <li>• Early interest from local educators and STEM clubs, first sales on Etsy, and pilot conversations in progress.</li>
+        <li>• DNA Assembly Kit iterated with classroom feedback, focus on snap fit accuracy and fast lesson setup.</li>
+        <li>• Teacher materials drafted, including quick start cards, worksheets, and answer keys.</li>
+      </ul>
+    </section>
+
+    <div class="hr"></div>
+
+    <!-- Timeline: horizontal on desktop, vertical on mobile -->
+    <section>
+      <h2 class="h2">Nine month roadmap</h2>
+      <div class="timeline">
+        <ol class="timeline-steps">
+          <li class="step">
+            <div class="dot"></div>
+            <p class="step-title">Months 1–2</p>
+            <p class="step-body">Finalize kit revisions, confirm pilot partners, prepare teacher packets, and establish survey templates.</p>
+          </li>
+          <li class="step">
+            <div class="dot"></div>
+            <p class="step-title">Months 3–4</p>
+            <p class="step-body">Run pilots, measure outcomes and timing, collect feedback, and refine parts for durability and cleanup.</p>
+          </li>
+          <li class="step">
+            <div class="dot"></div>
+            <p class="step-title">Months 5–6</p>
+            <p class="step-body">Publish downloadable teacher materials, package components, and set up quotes and simple ordering.</p>
+          </li>
+          <li class="step">
+            <div class="dot"></div>
+            <p class="step-title">Months 7–9</p>
+            <p class="step-body">Scale pilots, launch educator community, open broader ordering, and begin outreach to additional districts.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="hr"></div>
+
+    <!-- Grant impact -->
+    <section>
+      <h2 class="h2">How Venture Devils funding helps</h2>
+      <ul class="dot-list">
+        <li>• Equipment and materials, printers and filament recycler to support a closed loop process and consistent parts.</li>
+        <li>• Curriculum development, printable guides and worksheets, simple video walkthroughs.</li>
+        <li>• Pilot support, supplies for classroom runs and data collection.</li>
+        <li>• Light marketing and operations, packaging, shipping supplies, and educator outreach.</li>
+      </ul>
+    </section>
+
+    <div class="hr"></div>
+
+    <!-- Goals -->
+    <section class="grid-2">
+      <div>
+        <h2 class="h2">Near term goals</h2>
+        <ul class="dot-list">
+          <li>• Deploy pilot kits to partner classrooms and STEM clubs.</li>
+          <li>• Measure learning outcomes and activity timing.</li>
+          <li>• Refine lesson plans and answer keys from teacher input.</li>
+          <li>• Stress test components for durability and easier cleanup.</li>
         </ul>
       </div>
-      <div class="">
-        <h2 class="h2">What’s next</h2>
-        <ul>
-          <li>Publish downloadable teacher materials</li>
-          <li>Set up online ordering and managed fulfillment</li>
-          <li>Open educator community for tips and variations</li>
+      <div>
+        <h2 class="h2">What is next</h2>
+        <ul class="dot-list">
+          <li>• Publish downloadable teacher materials.</li>
+          <li>• Set up online ordering and managed fulfillment.</li>
+          <li>• Open educator community for tips and variations.</li>
         </ul>
       </div>
-    </div>
-    <div class="" style="margin-top:1rem">
-      <p class="muted" style="margin:0">If you’d like to pilot the kit, contact us via the form — we’ll follow up with details.</p>
-    </div>
+    </section>
+
+    <div class="hr"></div>
+
+    <!-- Card CTA (reuses .cta-band styles in global.css) -->
+    <section>
+      <div class="cta-band">
+        <div class="cta-title">Partner with our pilot program</div>
+        <p class="cta-subtext">Interested in hosting a classroom pilot or reviewing materials, we would love to work with you.</p>
+        <div class="cta-actions">
+          <a class="btn-primary" href="/contact">Request a pilot</a>
+          <a class="btn-link" href="/product">See the DNA kit</a>
+        </div>
+      </div>
+    </section>
   </section>
 </Layout>
 
+<style>
+/* Timeline styles scoped to this page */
+.timeline { position: relative; margin-top: .75rem; }
+.timeline-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  counter-reset: step;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+.step { position: relative; padding-left: 0; }
+.step .step-title { font-weight: 800; margin: 0 0 .15rem; color: rgb(30,64,175); }
+.step .step-body { margin: 0; color: var(--muted); line-height: 1.6; }
+
+/* horizontal line behind dots, desktop only */
+@media (min-width: 860px) {
+  .timeline-steps {
+    grid-template-columns: repeat(4, 1fr);
+    align-items: start;
+  }
+  .timeline-steps::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    top: 22px;
+    height: 2px;
+    background: rgba(31,75,184,.18);
+  }
+  .step { padding-top: 1.75rem; }
+}
+
+/* dot for each step */
+.dot {
+  width: 12px; height: 12px; border-radius: 9999px;
+  background: rgb(var(--color-mint-400));
+  border: 2px solid rgb(31,75,184);
+  position: relative;
+  margin-bottom: .35rem;
+}
+@media (min-width: 860px) {
+  .step { text-align: left; }
+  .dot { margin-bottom: .5rem; }
+}
+
+/* on small screens the line becomes vertical for each item */
+@media (max-width: 859px) {
+  .step { display: grid; grid-template-columns: 14px 1fr; column-gap: .6rem; align-items: start; }
+  .dot { grid-row: 1 / span 2; margin-top: .35rem; }
+}
+</style>
 
